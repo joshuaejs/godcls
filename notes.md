@@ -1,6 +1,6 @@
 # gocls
 
-`gocls` - a distributed commit log service written in Go.
+`godcls` - a distributed commit log service written in Go.
 
 ## setup
 

@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	api "github.com/joshuaejs/proglog/api/v1"
+	api "github.com/joshuaejs/godcls/api/v1"
 	"github.com/stretchr/testify/require"
 )
 

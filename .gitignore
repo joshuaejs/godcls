@@ -14,10 +14,10 @@
 !go.sum
 !go.mod
 
-!README.md
+!*.md
 !LICENSE
 
-# !Makefile
+!Makefile
 
 # ...even if they are in subdirectories
 !*/

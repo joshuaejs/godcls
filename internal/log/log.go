@@ -13,7 +13,7 @@ import (
 	"strings"
 	"sync"
 
-	api "github.com/joshuaejs/proglog/api/v1"
+	api "github.com/joshuaejs/godcls/api/v1"
 )
 
 // Log consists of a list of segments and a pointer to the active segment to

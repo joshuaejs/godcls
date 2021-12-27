@@ -1,4 +1,4 @@
-module github.com/joshuaejs/proglog
+module github.com/joshuaejs/godcls
 
 go 1.17
 
