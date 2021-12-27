@@ -1,6 +1,6 @@
-# proglog
+# gocls
 
-`proglog` - a distributed commit log service written in Go.
+`gocls` - a distributed commit log service written in Go.
 
 ## setup
 
