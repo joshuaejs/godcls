@@ -18,8 +18,11 @@ var _ api.LogServer = (*grpcServer)(nil)
 // NewGRPCServer provides a way to instantiate the service, create a gRPC
 // server, and register the service with the server. This gives the user a
 // server that just needs a listener.
-func NewGRPCServer(config *Config) (*grpc.Server, error) {
-	gsrv := grpc.NewServer()
+func NewGRPCServer(config *Config, opts ...grpc.ServerOption) (
+	*grpc.Server,
+	error,
+) {
+	gsrv := grpc.NewServer(opts...)
 	srv, err := newgrpcServer(config)
 	if err != nil {
 		return nil, err

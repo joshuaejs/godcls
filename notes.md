@@ -82,3 +82,15 @@ $ diff
 +       want := status.Code(api.ErrOffsetOutOfRange{}.GRPCStatus().Err())
 
 ```
+
+## chapter 5
+
+```txt
+go install github.com/cloudflare/cfssl/cmd/cfssl@latest
+go install github.com/cloudflare/cfssl/cmd/cfssljson@latest
+
+mkdir test
+
+mkdir -p internal/config
+
+```
