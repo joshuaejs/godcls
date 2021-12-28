@@ -57,3 +57,28 @@ $ go get -d google.golang.org/protobuf
 go get: added google.golang.org/protobuf v1.27.1
 $ go install google.golang.org/protobuf/...@v1.27.1
 ```
+
+## chapter 4
+
+- updated `server_test.go` to fix deprecation warnings with grpc
+
+```txt
+$ diff
+
+        "google.golang.org/grpc"
++       "google.golang.org/grpc/credentials/insecure"
++       "google.golang.org/grpc/status"
+
+
+-       clientOptions := []grpc.DialOption{grpc.WithInsecure()}
++       clientOptions := []grpc.DialOption{
++               grpc.WithTransportCredentials(insecure.NewCredentials()),
++       }
+
+
+-       got := grpc.Code(err)
+-       want := grpc.Code(api.ErrOffsetOutOfRange{}.GRPCStatus().Err())
++       got := status.Code(err)
++       want := status.Code(api.ErrOffsetOutOfRange{}.GRPCStatus().Err())
+
+```

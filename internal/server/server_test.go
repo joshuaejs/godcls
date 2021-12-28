@@ -123,7 +123,7 @@ func testConsumePastBoundary(
 	got := status.Code(err)
 	want := status.Code(api.ErrOffsetOutOfRange{}.GRPCStatus().Err())
 	if got != want {
-		t.Fatalf("got err: %v, want %v", got, want)
+		t.Fatalf("got err: %v, want: %v", got, want)
 	}
 }
 
