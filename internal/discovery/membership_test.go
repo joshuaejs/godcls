@@ -29,7 +29,7 @@ func TestMembership(t *testing.T) {
 			3 == len(m[0].Members()) &&
 			0 == len(handler.leaves)
 	}, 3*time.Second, 250*time.Millisecond)
-	require.NoError(t, m[2], Leave())
+	require.NoError(t, m[2].Leave())
 	require.Eventually(t, func() bool {
 		return 2 == len(handler.joins) &&
 			3 == len(m[0].Members()) &&
