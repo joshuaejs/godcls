@@ -235,3 +235,17 @@ google.golang.org/grpc.(*Server).serveStreams.func1.2
 PASS
 ok      github.com/joshuaejs/godcls/internal/server     6.044s
 ```
+
+## chapter 7
+
+- service discovery is the process of figuring out how to connect to a service
+- service discovery must keep an up-to-date list (*registry*) of services, their locations, and their health
+- downstream services query the registry to discover the location of upstream services and connect to them
+- there are two service discovery problems to solve for this service
+  - how will the servers in the cluster discover each other?
+  - how will the clients discover the servers?
+
+```txt
+go install github.com/hashicorp/serf@latest
+
+mkdir internal/discovery
