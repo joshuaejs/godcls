@@ -249,3 +249,4 @@ ok      github.com/joshuaejs/godcls/internal/server     6.044s
 go install github.com/hashicorp/serf@latest
 
 mkdir internal/discovery
+```
