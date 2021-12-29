@@ -94,3 +94,8 @@ mkdir test
 mkdir -p internal/config
 
 ```
+
+## chapter 6
+
+- an ACL is a table of rules
+  - an ACL is easy to code, as it's *just a table*, can use a map or CSV for simple implementations; complex implementations would use a key-value store or relational db.
