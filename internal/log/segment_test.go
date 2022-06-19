@@ -2,7 +2,6 @@ package log
 
 import (
 	"io"
-	"io/ioutil"
 	"os"
 	"testing"
 
@@ -11,7 +10,7 @@ import (
 )
 
 func TestSegment(t *testing.T) {
-	dir, _ := ioutil.TempDir("", "segment_test")
+	dir, _ := os.MkdirTemp("", "segment_test")
 	defer os.RemoveAll(dir)
 
 	want := &api.Record{Value: []byte("hello world")}

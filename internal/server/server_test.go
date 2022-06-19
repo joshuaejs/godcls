@@ -3,7 +3,6 @@ package server
 import (
 	"context"
 	"flag"
-	"io/ioutil"
 	"net"
 	"os"
 	"testing"
@@ -110,7 +109,7 @@ func setupTest(t *testing.T, fn func(*Config)) (
 	require.NoError(t, err)
 	serverCreds := credentials.NewTLS(serverTLSConfig)
 
-	dir, err := ioutil.TempDir("", "server_test")
+	dir, err := os.MkdirTemp("", "server_test")
 	require.NoError(t, err)
 
 	clog, err := log.NewLog(dir, log.Config{})
@@ -120,11 +119,11 @@ func setupTest(t *testing.T, fn func(*Config)) (
 	// beginning of observability code
 	var telemetryExporter *exporter.LogExporter
 	if *debug {
-		metricsLogFile, err := ioutil.TempFile("", "metrics-*.log")
+		metricsLogFile, err := os.CreateTemp("", "metrics-*.log")
 		require.NoError(t, err)
 		t.Logf("metrics log file: %s", metricsLogFile.Name())
 
-		tracesLogFile, err := ioutil.TempFile("", "traces-*.log")
+		tracesLogFile, err := os.CreateTemp("", "traces-*.log")
 		require.NoError(t, err)
 		t.Logf("traces log file: %s", tracesLogFile.Name())
 
