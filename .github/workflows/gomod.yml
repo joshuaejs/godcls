@@ -27,7 +27,6 @@ jobs:
       env:
         ROOT_CLIENT_PEM: ${{ secrets.ROOT_CLIENT_PEM }}
         ROOT_CLIENT_KEY_PEM: ${{ secrets.ROOT_CLIENT_KEY_PEM }}
-        ROOT_CLIENT_CSR: ${{ secrets.ROOT_CLIENT_CSR }}
         CA_CSR: ${{ secrets.CA_CSR }}
         CA_KEY_PEM: ${{ secrets.CA_KEY_PEM }}
         CA_PEM: ${{ secrets.CA_PEM }}
@@ -36,14 +35,13 @@ jobs:
         
       run: |
         mkdir -p ~/.godcls
-        base64 -d "$ROOT_CLIENT_PEM" > ~/.godcls/root-client.pem
-        base64 -d "$ROOT_CLIENT_KEY__PEM" > ~/.godcls/root-client-key.pem
-        base64 -d "$ROOT_CLIENT_CSR" > ~/.godcls/root-client.csr
-        base64 -d "$CA_CSR" > ~/.godcls/ca.csr
-        base64 -d "$CA_PEM" > ~/.godcls/ca.pem
-        base64 -d "$CA_KEY_PEM" > ~/.godcls/ca-key.pem
-        base64 -d "$NOBODY_CLIENT_PEM" > ~/.godcls/nobody-client.pem
-        base64 -d "$NOBODY_CLIENT_KEY__PEM" > ~/.godcls/nobody-client-key.pem
+        echo "$ROOT_CLIENT_PEM" | base64 -d > ~/.godcls/root-client.pem
+        echo "$ROOT_CLIENT_KEY_PEM" | base64 -d > ~/.godcls/root-client-key.pem
+        echo "$CA_CSR" | base64 -d > ~/.godcls/ca.csr
+        echo "$CA_PEM" | base64 -d > ~/.godcls/ca.pem
+        echo "$CA_KEY_PEM" | base64 -d > ~/.godcls/ca-key.pem
+        echo "$NOBODY_CLIENT_PEM" | base64 -d > ~/.godcls/nobody-client.pem
+        echo "$NOBODY_CLIENT_KEY_PEM" | base64 -d > ~/.godcls/nobody-client-key.pem
 
     - name: Update minor dependencies
       run: go get -t -u ./...
