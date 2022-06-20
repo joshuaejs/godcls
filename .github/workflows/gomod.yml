@@ -25,10 +25,13 @@ jobs:
   
     - shell: bash
       env:
-        ROOT_CERT_PEM: ${{ secrets.ROOT_CLIENT_PEM }}
+        ROOT_CLIENT_PEM: ${{ secrets.ROOT_CLIENT_PEM }}
+        ROOT_CLIENT_KEY_PEM: ${{ secrets.ROOT_CLIENT_KEY_PEM }}
+        
       run: |
         mkdir -p ~/.godcls
         echo "$ROOT_CLIENT_PEM" > ~/.godcls/root-client.pem
+        echo "$ROOT_CLIENT_KEY__PEM" > ~/.godcls/root-client-key.pem
 
     - name: Update minor dependencies
       run: go get -t -u ./...
