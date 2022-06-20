@@ -23,11 +23,6 @@ jobs:
       with:
         go-version: ${{ env.GO_VERSION }}
 
-    - name: add ssl certs
-      run: |
-        mkdir -p ~/.godcls
-        echo ${{ secrets.ROOT_CLIENT_PEM }} > ~/.godcls/root-client.pem
-
     - name: Update minor dependencies
       run: go get -t -u ./...
 
