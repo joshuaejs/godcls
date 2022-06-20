@@ -26,7 +26,7 @@ jobs:
     - name: add ssl certs
       run: |
         mkdir -p ~/.godcls
-        cp ${{ secrets.ROOT_CLIENT_PEM }} ~/.godcls/root-client.pem
+        echo ${{ secrets.ROOT_CLIENT_PEM }} > ~/.godcls/root-client.pem
 
     - name: Update minor dependencies
       run: go get -t -u ./...
