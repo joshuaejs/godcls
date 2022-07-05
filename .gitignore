@@ -7,7 +7,10 @@
 # Ignore everything
 *
 
-# But not these files...
+# apply rules to subdirectories
+!*/
+
+# allow
 !/.gitignore
 
 !*.go
@@ -18,6 +21,3 @@
 !LICENSE
 
 !Makefile
-
-# ...even if they are in subdirectories
-!*/
